@@ -1,0 +1,44 @@
+.log-page {
+    height: 35em;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 3em
+}
+
+.title-log-page {
+    background-color: #616774;
+    margin-bottom: 2em;
+    height: 4em;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.title-log-page h2 {
+    padding: 10px
+}
+
+.container-logout-page {
+    text-align: center
+}
+
+#suggestion {
+    text-align: center;
+    display: flex;
+}
+
+.parent {
+  margin-top: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.child-test {
+  padding: 20px 20px;
+  height: 400px;
+  width: 400px;
+}

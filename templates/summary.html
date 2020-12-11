@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main">
+    <div class="container">
+        <div>
+            <h1>Thank You very much for your purchase!</h1>
+        </div>
+        <div class="table-responsive text-nowrap">
+                <h2 class="pt-2">Your order includes</h2>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item title</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Items Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for order_item in order.products.all %}
+                      <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ order_item.product.name }}</td>
+                        <td>${{ order_item.product.price }}</td>
+                        <td>
+                            {{ order_item.quantity }}
+                        </td>
+                        <td>${{ order_item.get_total_price }}
+                        </td>
+
+                      </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="4"><b>Order Total</b></td>
+                        <td><b>${{ order.get_final_price|floatformat:2 }}</b></td>
+                    </tr>
+                    </tbody>
+
+                  </table>
+        </div>
+        <div class="mt-3">
+            <h1>It will promptly be sent to this address</h1>
+            <h5>{{ order.shipping_address.address|title }}</h5>
+            <h5>{{ order.shipping_address.city|title }}, {{ order.shipping_address.zipcode }}</h5>
+            {% if order.shipping_address.state|title %}
+                <h5>{{ order.shipping_address.state|title }}</h5>
+            {% endif %}
+            <h5>{{ order.shipping_address.country|upper }}</h5>
+        </div>
+    </div>
+</main>
+{% endblock %}

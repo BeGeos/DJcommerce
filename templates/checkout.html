@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <!--Main layout-->
+    <div class="container wow fadeIn">
+
+      <!-- Heading -->
+      <h2 class="my-5 h2 text-center"><b>Checkout Form</b></h2>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+          <!--Card-->
+          <div class="card">
+
+
+            <!--Card content-->
+            <form method="post" class="card-body">
+              {% csrf_token %}
+
+              <div>
+                {{ form|crispy }}
+              </div>
+
+<!--              <div class="row">-->
+<!--                <div class="col-md-6 mb-3">-->
+<!--                  <label for="cc-name">Name on card</label>-->
+<!--                  <input type="text" class="form-control" id="cc-name" placeholder="" required>-->
+<!--                  <small class="text-muted">Full name as displayed on card</small>-->
+<!--                  <div class="invalid-feedback">-->
+<!--                    Name on card is required-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-6 mb-3">-->
+<!--                  <label for="cc-number">Credit card number</label>-->
+<!--                  <input type="text" class="form-control" id="cc-number" placeholder="" required>-->
+<!--                  <div class="invalid-feedback">-->
+<!--                    Credit card number is required-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="row">-->
+<!--                <div class="col-md-3 mb-3">-->
+<!--                  <label for="cc-expiration">Expiration</label>-->
+<!--                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>-->
+<!--                  <div class="invalid-feedback">-->
+<!--                    Expiration date required-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-3 mb-3">-->
+<!--                  <label for="cc-expiration">CVV</label>-->
+<!--                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>-->
+<!--                  <div class="invalid-feedback">-->
+<!--                    Security code required-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+            </form>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  <!--Main layout-->
+{% endblock %}

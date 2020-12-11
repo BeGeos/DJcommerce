@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Login</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css'%}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link type="text/css" href="{% static 'css/my_style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<div class="log-page">
+        <div class="title-log-page">
+            <h2>Sign In</h2>
+        </div>
+        <div class="container-log-page">
+            <!-- Default form login -->
+                <form method="POST">
+                    {% csrf_token %}
+                        {{ form|crispy }}
+                    <div class="form-group" style="text-align: center">
+                        <button class="btn btn-primary" type="submit">Login</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Don't Have an Account? <a class="ml-2" href="{% url 'sign-up' %}">Sign Up</a>
+                    </small>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
